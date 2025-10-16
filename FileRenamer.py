@@ -1,16 +1,10 @@
 import csv
-import os
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from pathlib import Path
-import urllib.request
 
 def set_window_icon(root: tk.Tk, icon_name="uwu.png"):
-    """
-    Use a local PNG (uwu.png) as the window/icon image.
-    Place uwu.png next to this script.
-    Keeps a reference on root to avoid GC.
-    """
+    #Use a local PNG (uwu.png) as the window/icon image.
     base = Path(__file__).with_name(icon_name)
     if not base.exists():
         return
@@ -19,7 +13,6 @@ def set_window_icon(root: tk.Tk, icon_name="uwu.png"):
         root._uwu_icon = img
         root.iconphoto(True, img)
     except Exception:
-        
         pass
 
 class FileRenamerGUI:
@@ -27,7 +20,6 @@ class FileRenamerGUI:
         self.root = root
         self.root.title("File Renamer")
         set_window_icon(self.root, "uwu.png")
-        # state variables
         self.csv_path = tk.StringVar()
         self.directory_path = tk.StringVar()
         
